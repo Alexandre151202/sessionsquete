@@ -1,3 +1,12 @@
+<?php session_start();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $_SESSION['loginname'] = $_POST['loginname'];
+    header('Location:/');
+    exit;
+}
+?>
+
 <?php require 'inc/head.php'; ?>
 <div class="container" style="margin-top:40px">
     <div class="row">
@@ -43,3 +52,4 @@
     </div>
 </div>
 <?php require 'inc/foot.php'; ?>
+

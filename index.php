@@ -1,3 +1,24 @@
+<?php session_start();
+
+$productId = 0;
+function addToCart(int $id)
+{
+    if (!isset($_GET['add_to_cart'])) {
+        $_SESSION['cart'] = [];
+    }
+    if (!empty($SESSION['cart'][$_GET['add_to_cart']])) {
+        $id = $_GET['add_to_cart'];
+        $_SESSION['cart'][$id]++;
+    } else {
+        $id = $_GET['add_to_cart'];
+        $_SESSION['cart'][$id] = 1;
+    }
+}
+if (isset($_GET['add_to_cart'])) {
+    addToCart($productId);
+
+} ?>
+
 <?php require 'inc/data/products.php'; ?>
 <?php require 'inc/head.php'; ?>
 <section class="cookies container-fluid">
